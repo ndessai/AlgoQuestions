@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveListNode", "LinkedLis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddLists", "LinkedLists\AddLists\AddLists.csproj", "{C403E77F-D723-4B97-946D-F7957FA1E563}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CycleBeginnning", "LinkedLists\CycleBeginnning\CycleBeginnning.csproj", "{02822307-2B3C-47F9-BA6E-9185592E7E3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{C403E77F-D723-4B97-946D-F7957FA1E563}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C403E77F-D723-4B97-946D-F7957FA1E563}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C403E77F-D723-4B97-946D-F7957FA1E563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02822307-2B3C-47F9-BA6E-9185592E7E3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02822307-2B3C-47F9-BA6E-9185592E7E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02822307-2B3C-47F9-BA6E-9185592E7E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02822307-2B3C-47F9-BA6E-9185592E7E3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,5 +87,6 @@ Global
 		{6864EC17-0D31-4D5F-9106-BE48EE389CA9} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
 		{9C2D29D8-B72D-4EF8-A2BA-986FFE1FB868} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
 		{C403E77F-D723-4B97-946D-F7957FA1E563} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
+		{02822307-2B3C-47F9-BA6E-9185592E7E3D} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
 	EndGlobalSection
 EndGlobal
