@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StacksAndQueues", "StacksAn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksUsingArray", "StacksAndQueues\StacksUsingArray\StacksUsingArray.csproj", "{C757AC12-C5F7-41F5-9103-37C8077FCDEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinStack", "StacksAndQueues\MinStack\MinStack.csproj", "{D4220057-1A49-4932-BD57-8B76F69A157B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{C757AC12-C5F7-41F5-9103-37C8077FCDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C757AC12-C5F7-41F5-9103-37C8077FCDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C757AC12-C5F7-41F5-9103-37C8077FCDEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4220057-1A49-4932-BD57-8B76F69A157B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4220057-1A49-4932-BD57-8B76F69A157B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4220057-1A49-4932-BD57-8B76F69A157B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4220057-1A49-4932-BD57-8B76F69A157B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{C403E77F-D723-4B97-946D-F7957FA1E563} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
 		{02822307-2B3C-47F9-BA6E-9185592E7E3D} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
 		{C757AC12-C5F7-41F5-9103-37C8077FCDEA} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
+		{D4220057-1A49-4932-BD57-8B76F69A157B} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 	EndGlobalSection
 EndGlobal
