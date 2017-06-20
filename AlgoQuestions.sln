@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetOfStacks", "StacksAndQue
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueUsingStacks", "StacksAndQueues\QueueUsingStacks\QueueUsingStacks.csproj", "{7A8D0247-5044-4AE6-A51A-2082A693B115}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TreesAndGraphs", "TreesAndGraphs", "{40E6E08F-ABFC-4732-AF87-932576F7B568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTreeLogic", "TreesAndGraphs\CommonTreeLogic\CommonTreeLogic.csproj", "{BB2524F3-E475-40A7-A0B9-8428CB783E06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,10 @@ Global
 		{7A8D0247-5044-4AE6-A51A-2082A693B115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A8D0247-5044-4AE6-A51A-2082A693B115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A8D0247-5044-4AE6-A51A-2082A693B115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,5 +126,6 @@ Global
 		{D4220057-1A49-4932-BD57-8B76F69A157B} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 		{14F5661D-9F8B-4365-9B85-7776B19E86B4} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 		{7A8D0247-5044-4AE6-A51A-2082A693B115} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
+		{BB2524F3-E475-40A7-A0B9-8428CB783E06} = {40E6E08F-ABFC-4732-AF87-932576F7B568}
 	EndGlobalSection
 EndGlobal
