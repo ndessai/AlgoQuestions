@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksUsingArray", "StacksA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinStack", "StacksAndQueues\MinStack\MinStack.csproj", "{D4220057-1A49-4932-BD57-8B76F69A157B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetOfStacks", "StacksAndQueues\SetOfStacks\SetOfStacks.csproj", "{14F5661D-9F8B-4365-9B85-7776B19E86B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{D4220057-1A49-4932-BD57-8B76F69A157B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4220057-1A49-4932-BD57-8B76F69A157B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4220057-1A49-4932-BD57-8B76F69A157B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F5661D-9F8B-4365-9B85-7776B19E86B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F5661D-9F8B-4365-9B85-7776B19E86B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F5661D-9F8B-4365-9B85-7776B19E86B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F5661D-9F8B-4365-9B85-7776B19E86B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,5 +110,6 @@ Global
 		{02822307-2B3C-47F9-BA6E-9185592E7E3D} = {FAC38D1B-9BC5-45F0-BA75-721D092002CC}
 		{C757AC12-C5F7-41F5-9103-37C8077FCDEA} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 		{D4220057-1A49-4932-BD57-8B76F69A157B} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
+		{14F5661D-9F8B-4365-9B85-7776B19E86B4} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 	EndGlobalSection
 EndGlobal
