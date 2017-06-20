@@ -38,7 +38,7 @@ public int MaxHeight()
     int height = 0;
     foreach (var child in Children)
     {
-        height = 1+ Math.Max(child.MinHeight(), height);
+        height = 1+ Math.Max(child.MaxHeight(), height);
     }
     return height;
 }	
@@ -71,8 +71,8 @@ public int MaxHeight()
     {
         return 1;
     }
-    int leftHeight = Left == null ? 0 : Left.MinHeight();
-    int rightHeight = Right == null ? 0 : Right.MinHeight();
+    int leftHeight = Left == null ? 0 : Left.MaxHeight();
+    int rightHeight = Right == null ? 0 : Right.MaxHeight();
     return 1 + Math.Max(leftHeight, rightHeight);
 }
 }

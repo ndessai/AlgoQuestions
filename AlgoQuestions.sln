@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TreesAndGraphs", "TreesAndG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTreeLogic", "TreesAndGraphs\CommonTreeLogic\CommonTreeLogic.csproj", "{BB2524F3-E475-40A7-A0B9-8428CB783E06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeTraversal", "TreesAndGraphs\TreeTraversal\TreeTraversal.csproj", "{CF82A724-909A-4B44-B3B8-49EF1CDF64C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2524F3-E475-40A7-A0B9-8428CB783E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF82A724-909A-4B44-B3B8-49EF1CDF64C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF82A724-909A-4B44-B3B8-49EF1CDF64C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF82A724-909A-4B44-B3B8-49EF1CDF64C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF82A724-909A-4B44-B3B8-49EF1CDF64C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,5 +133,6 @@ Global
 		{14F5661D-9F8B-4365-9B85-7776B19E86B4} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 		{7A8D0247-5044-4AE6-A51A-2082A693B115} = {DA484E17-1BA3-4FC4-A9CF-9607585C108C}
 		{BB2524F3-E475-40A7-A0B9-8428CB783E06} = {40E6E08F-ABFC-4732-AF87-932576F7B568}
+		{CF82A724-909A-4B44-B3B8-49EF1CDF64C4} = {40E6E08F-ABFC-4732-AF87-932576F7B568}
 	EndGlobalSection
 EndGlobal
