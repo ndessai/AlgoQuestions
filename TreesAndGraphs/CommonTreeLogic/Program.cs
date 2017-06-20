@@ -84,18 +84,21 @@ public class Tree<T>
     {
         var maxHeight = Root.MaxHeight();
         Console.WriteLine(" Height => " + maxHeight);
-        Console.WriteLine();
         var levelLists = new List<TreeNode<T>>[maxHeight];
         var list = new List<TreeNode<T>>();
         list.Add(Root);
         levelLists[0] = list;
         int level = 0;
+        int width = (int)Math.Pow(2, maxHeight);
+
         while (true)
         {
-            int gaps = maxHeight / (2 * (level + 1));
-            for (int i = 0; i <= gaps; i++) Console.Write(' ');
+            Console.WriteLine();
+            int gaps = (width) / (2 * (level + 1));
+            if (level + 1 != maxHeight) for (int i = 0; i <= gaps; i++) Console.Write(' ');
 
             list = new List<TreeNode<T>>();
+
             foreach (var node in levelLists[level])
             {
                 Console.Write(node.Data);
