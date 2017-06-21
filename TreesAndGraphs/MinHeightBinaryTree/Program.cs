@@ -1,5 +1,4 @@
-﻿//Tree 
-
+﻿
 using System;
 using System.Collections.Generic;
 
@@ -46,7 +45,7 @@ public class BinaryTree<T> where T : IComparable<T>, new()
         Dummy = new BinaryTreeNode<T>(new T());
     }
 
-    public BinaryTreeNode<T> Search(T data) 
+    public BinaryTreeNode<T> Search(T data)
     {
         var current = Root;
         while (current != null)
@@ -71,14 +70,14 @@ public class BinaryTree<T> where T : IComparable<T>, new()
         {
             result = current.Data.CompareTo(data);
             parent = current;
-            current = result >0 ? current.Left : current.Right;
+            current = result > 0 ? current.Left : current.Right;
         }
         if (parent == null)
         {
             Root = node;
             return;
         }
-         result = data.CompareTo(parent.Data);
+        result = data.CompareTo(parent.Data);
         if (result <= 0)
             parent.Left = node;
         else
@@ -91,12 +90,12 @@ public class BinaryTree<T> where T : IComparable<T>, new()
         //1. No right child, replace parent.Left/Right = current.Left;
         //2. No left child of the right child parent.Left/Right = current.Right;
         //3. otherwise parent.Left/Right = leftmost child of right child
-        int result =0;
+        int result = 0;
         if (Root == null)
         {
             return;
         }
-        
+
         BinaryTreeNode<T> current = Root;
         BinaryTreeNode<T> parent = null;
         while (current != null)
@@ -108,7 +107,7 @@ public class BinaryTree<T> where T : IComparable<T>, new()
             }
             parent = current;
             current = (result <= 0) ? current.Left : current.Right;
-            
+
         }
         if (current == null)
         {
@@ -117,7 +116,7 @@ public class BinaryTree<T> where T : IComparable<T>, new()
         //case 1. right child is null
         if (current.Right == null)
         {
-            if(parent == null)
+            if (parent == null)
             {
                 Root = current.Left;
                 return;
@@ -142,7 +141,7 @@ public class BinaryTree<T> where T : IComparable<T>, new()
                 Root = current.Right;
                 return;
             }
-            
+
             if (parent.Left == current)
             {
                 parent.Left = current.Right;
@@ -165,7 +164,7 @@ public class BinaryTree<T> where T : IComparable<T>, new()
         leftMostParent.Left = leftMost.Right;
         leftMost.Left = current.Left;
         leftMost.Right = current.Right;
-        if(parent == null)
+        if (parent == null)
         {
             Root = leftMost;
             return;
@@ -223,10 +222,10 @@ public class BinaryTree<T> where T : IComparable<T>, new()
             if (level + 1 != maxHeight) for (int i = 0; i <= gaps; i++) Console.Write(' ');
 
             list = new List<BinaryTreeNode<T>>();
-            
+
             foreach (var node in levelLists[level])
             {
-                if(node == Dummy)
+                if (node == Dummy)
                 {
                     for (int i = 0; i <= gaps; i++) Console.Write(' ');
                     continue;
@@ -248,9 +247,9 @@ public class BinaryTree<T> where T : IComparable<T>, new()
                 break;
             }
             var temp = new List<BinaryTreeNode<T>>();
-            foreach(var n in list)
+            foreach (var n in list)
             {
-                if(n != Dummy)
+                if (n != Dummy)
                 {
                     temp.Add(n);
                 }
@@ -269,70 +268,30 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        BinaryTree<int> bTree = new BinaryTree<int>();
-        //bTree.Root = new BinaryTreeNode<int>(4);
-        //bTree.Root.Left = new BinaryTreeNode<int>(2);
-        //bTree.Root.Right = new BinaryTreeNode<int>(6);
-        //bTree.Root.Left.Left = new BinaryTreeNode<int>(1);
-        //bTree.Root.Left.Right = new BinaryTreeNode<int>(3);
-        //bTree.Root.Right.Left = new BinaryTreeNode<int>(5);
-        //bTree.Root.Right.Right = new BinaryTreeNode<int>(7);
-        int[] array = new int[] { 4,2,6,1,3,5,7};
-        foreach(var item in array)
-        {
-            bTree.Insert(item);
-        }
-        bTree.Print();
-        Console.WriteLine();
-        bTree.PostOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.PreOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.InOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        Console.WriteLine();
+        int[] sortedArray = new int[] { 1, 2, 3, 4, 5, 6 };
 
-        bTree.Insert(9);
-        bTree.Insert(0);
-        bTree.Print();
-        Console.WriteLine();
-        bTree.PostOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.PreOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.InOrderTraversal(bTree.Root);
-        Console.WriteLine();
+        var bTreeOne = new BinaryTree<int>();
+        foreach (var val in sortedArray) bTreeOne.Insert(val);
+        bTreeOne.Print();
 
-        Console.WriteLine();
-        Console.WriteLine();
-
-       // bTree.Delete(0);
-        bTree.Delete(4);
-
-        // bTree.Insert(0);
-        bTree.Print();
-        Console.WriteLine();
-        bTree.PostOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.PreOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.InOrderTraversal(bTree.Root);
-        Console.WriteLine();
-
-
-        Console.WriteLine();
-        Console.WriteLine();
-
-        bTree.Insert(10);
-        bTree.Print();
-        Console.WriteLine();
-        bTree.PostOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.PreOrderTraversal(bTree.Root);
-        Console.WriteLine();
-        bTree.InOrderTraversal(bTree.Root);
-        Console.WriteLine();
+        var p = new Program();
+		var bTreeTwo = new BinaryTree<int>();
+        bTreeTwo.Root = p.InsertTreeRange(sortedArray, 0, sortedArray.Length - 1);
+        bTreeTwo.Print();
 
         Console.Read();
+    }
+
+    private BinaryTreeNode<int> InsertTreeRange(int[] array, int start, int end)
+    {
+        if (end < start) return null;
+
+        int middle = (end + start) / 2;
+
+        var node = new BinaryTreeNode<int>(array[middle]);
+        node.Left = InsertTreeRange(array, start, middle - 1);
+        node.Right = InsertTreeRange(array, middle + 1, end);
+        return node;
+
     }
 }
