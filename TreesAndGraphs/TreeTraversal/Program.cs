@@ -37,9 +37,15 @@ public class BinaryTreeNode<T> where T : IComparable<T>
 }
 
 
-public class BinaryTree<T> where T : IComparable<T>
+public class BinaryTree<T> where T : IComparable<T>, new()
 {
     public BinaryTreeNode<T> Root { get; set; }
+    public BinaryTreeNode<T> Dummy { get; set; }
+
+    public BinaryTree()
+    {
+        Dummy = new BinaryTreeNode<T>(new T());
+    }
 
     public BinaryTreeNode<T> Search(T data) 
     {
@@ -221,15 +227,36 @@ public class BinaryTree<T> where T : IComparable<T>
             
             foreach (var node in levelLists[level])
             {
+                if(node == Dummy)
+                {
+                    for (int i = 0; i <= gaps; i++) Console.Write(' ');
+                    continue;
+                }
                 Console.Write(node.Data);
                 for (int i = 0; i <= gaps; i++) Console.Write(' ');
                 if (node.Left != null)
                     list.Add(node.Left);
+                else
+                    list.Add(Dummy);
 
                 if (node.Right != null)
                     list.Add(node.Right);
+                else
+                    list.Add(Dummy);
             }
             if (list.Count <= 0)
+            {
+                break;
+            }
+            var temp = new List<BinaryTreeNode<T>>();
+            foreach(var n in list)
+            {
+                if(n != Dummy)
+                {
+                    temp.Add(n);
+                }
+            }
+            if (temp.Count <= 0)
             {
                 break;
             }
@@ -284,6 +311,20 @@ public class Program
         bTree.Delete(4);
 
         // bTree.Insert(0);
+        bTree.Print();
+        Console.WriteLine();
+        bTree.PostOrderTraversal(bTree.Root);
+        Console.WriteLine();
+        bTree.PreOrderTraversal(bTree.Root);
+        Console.WriteLine();
+        bTree.InOrderTraversal(bTree.Root);
+        Console.WriteLine();
+
+
+        Console.WriteLine();
+        Console.WriteLine();
+
+        bTree.Insert(10);
         bTree.Print();
         Console.WriteLine();
         bTree.PostOrderTraversal(bTree.Root);
