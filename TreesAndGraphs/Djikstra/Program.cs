@@ -8,11 +8,11 @@ public class Node<T> where T : IComparable<T>
     public List<int?> Costs;
 
     public Node(T val)
-	{
+    {
         Data = val;
-		Neighbors = new List<Node<T>>();
-		Costs = new List<int?>();
-	}
+        Neighbors = new List<Node<T>>();
+        Costs = new List<int?>();
+    }
 }
 
 public class Graph<T> where T : IComparable<T>
@@ -56,6 +56,66 @@ public class Graph<T> where T : IComparable<T>
             destNode.Costs.Add(cost);
         }
     }
+    public Node<T> GetNextNearestNode(List<Node<T>> nodeList, Dictionary<Node<T>, int> distances)
+    {
+        if (nodeList == null || nodeList.Count <= 0) return null;
+
+        Node<T> nearestNode = null;
+        foreach (var node in nodeList)
+        {
+            if (nearestNode == null) { nearestNode = node; continue; }
+            if (distances[node] < distances[nearestNode]) nearestNode = node;
+        }
+        nodeList.Remove(nearestNode);
+        return nearestNode;
+    }
+
+    public void Djikstras(T from)
+    {
+        var nodeDistances = new Dictionary<Node<T>, int>();
+        foreach (var node in Nodes)
+        {
+            nodeDistances.Add(node, (node == FindNode(from)) ? 0 : Int32.MaxValue);
+        }
+
+        var routes = new Dictionary<Node<T>, Node<T>>();
+        List<Node<T>> nodeList = new List<Node<T>>(Nodes);
+        Node<T> nearestNode = GetNextNearestNode(nodeList, nodeDistances);
+        while (nearestNode != null)
+        {
+            int i = 0;
+            foreach (var neighbor in nearestNode.Neighbors)
+            {
+                var cost = nearestNode.Costs[i++];
+
+                if (nodeDistances[neighbor] > nodeDistances[nearestNode] + cost.Value)
+                {
+                    nodeDistances[neighbor] = nodeDistances[nearestNode] + cost.Value;
+                    routes[neighbor] = nearestNode;
+                }
+            }
+            nearestNode = GetNextNearestNode(nodeList, nodeDistances);
+        }
+
+        //Printing distance table
+        Console.WriteLine("Printing distance tables");
+        foreach (var key in nodeDistances.Keys)
+        {
+            Console.WriteLine();
+            Console.Write(key.Data + "  " + nodeDistances[key]);
+            Node<T> fromDict = null;
+            if (routes.TryGetValue(key, out fromDict))
+            {
+                while (fromDict != null)
+                {
+                    Console.Write("\t\t" + fromDict.Data);
+                    routes.TryGetValue(fromDict, out fromDict);
+                }
+            }
+        }
+
+    }
+
 
     public void Print()
     {
@@ -77,8 +137,11 @@ public class Graph<T> where T : IComparable<T>
     }
 }
 
+
+
 public class Program
 {
+
     public static void Main(string[] args)
     {
         var graph = new Graph<string>();
@@ -114,45 +177,10 @@ public class Program
 
         graph.Print();
 
-        //second graph
-        graph = new Graph<string>();
-        graph.Directed = false;
-        graph.AddNode("H1");
-        graph.AddNode("H2");
-        graph.AddNode("H3");
-        graph.AddNode("H4");
-
-        graph.AddNode("H5");
-        graph.AddNode("H6");
-        graph.AddNode("H7");
-        graph.AddNode("H8");
-        graph.AddNode("H9");
-        graph.AddNode("H10");
-
-        graph.AddEdge("H1", "H3", 45);
-        graph.AddEdge("H1", "H2", 20);
-        graph.AddEdge("H1", "H10", 45);
-
-        graph.AddEdge("H3", "H4", 45);
-        graph.AddEdge("H3", "H2", 30);
-
-        graph.AddEdge("H10", "H2", 30);
-        graph.AddEdge("H10", "H8", 50);
-
-        graph.AddEdge("H2", "H5", 25);
-        graph.AddEdge("H2", "H8", 100);
-
-        graph.AddEdge("H5", "H4", 75);
-        graph.AddEdge("H5", "H6", 75);
-        graph.AddEdge("H5", "H8", 90);
-
-        graph.AddEdge("H6", "H9", 40);
-        graph.AddEdge("H6", "H7", 80);
-
-        graph.AddEdge("H8", "H9", 45);
-        graph.AddEdge("H8", "H7", 15);
-
-        graph.Print();
+        graph.Djikstras("NY");
         Console.Read();
     }
 }
+
+
+
