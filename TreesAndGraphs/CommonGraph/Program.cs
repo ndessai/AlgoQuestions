@@ -174,7 +174,6 @@ public class Program
         graph.DFS("NY");
         Console.WriteLine(" Doing BFS");
         graph.BFS("NY");
-        Console.WriteLine("Cycle =>" + graph.HasCycle);
         Console.WriteLine();
 
         //second graph
@@ -220,7 +219,6 @@ public class Program
         graph.DFS("H1");
         Console.WriteLine(" Doing BFS");
         graph.BFS("H1");
-        Console.WriteLine("Cycle =>" + graph.HasCycle);
         Console.Read();
     }
 }
