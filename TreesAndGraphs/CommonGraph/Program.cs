@@ -8,11 +8,11 @@ public class Node<T> where T : IComparable<T>
     public List<int?> Costs;
 
     public Node(T val)
-	{
+    {
         Data = val;
-		Neighbors = new List<Node<T>>();
-		Costs = new List<int?>();
-	}
+        Neighbors = new List<Node<T>>();
+        Costs = new List<int?>();
+    }
 }
 
 public class Graph<T> where T : IComparable<T>
@@ -75,6 +75,62 @@ public class Graph<T> where T : IComparable<T>
         }
         Console.WriteLine();
     }
+
+    public void DFS(T root)
+    {
+        Node<T> rootNode = FindNode(root);
+        if (rootNode == null) return;
+
+        var visitedDictionary = new Dictionary<Node<T>, bool>();
+        foreach (var node in Nodes)
+        {
+            visitedDictionary.Add(node, false);
+        }
+        DFSRecursive(rootNode, visitedDictionary);
+    }
+
+    private void DFSRecursive(Node<T> node, Dictionary<Node<T>, bool> visited)
+    {
+        if (visited[node])
+        {
+            return;
+        }
+        visited[node] = true;
+        Console.Write(" " + node.Data + " ");
+
+        foreach (var neighbor in node.Neighbors)
+        {
+            DFSRecursive(neighbor, visited);
+        }
+
+    }
+
+    public void BFS(T root)
+    {
+        Node<T> rootNode = FindNode(root);
+        if (rootNode == null) return;
+
+        var visitedDictionary = new Dictionary<Node<T>, bool>();
+        foreach (var node in Nodes)
+        {
+            visitedDictionary.Add(node, false);
+        }
+        Queue<Node<T>> nodes = new Queue<Node<T>>();
+        nodes.Enqueue(rootNode);
+        visitedDictionary[rootNode] = true;
+        while (nodes.Count > 0)
+        {
+            var node = nodes.Dequeue();
+            
+            Console.Write(" " + node.Data + " ");
+            foreach (var neighbor in node.Neighbors)
+            {
+                if (visitedDictionary[neighbor]) continue;
+                visitedDictionary[neighbor] = true;
+                nodes.Enqueue(neighbor);
+            }
+        }
+    }
 }
 
 public class Program
@@ -113,6 +169,13 @@ public class Program
         graph.AddEdge("SD", "LA", 45);
 
         graph.Print();
+        Console.WriteLine(" Doing DFS ");
+        
+        graph.DFS("NY");
+        Console.WriteLine(" Doing BFS");
+        graph.BFS("NY");
+        Console.WriteLine("Cycle =>" + graph.HasCycle);
+        Console.WriteLine();
 
         //second graph
         graph = new Graph<string>();
@@ -153,6 +216,14 @@ public class Program
         graph.AddEdge("H8", "H7", 15);
 
         graph.Print();
+        Console.WriteLine(" Doing DFS ");
+        graph.DFS("H1");
+        Console.WriteLine(" Doing BFS");
+        graph.BFS("H1");
+        Console.WriteLine("Cycle =>" + graph.HasCycle);
         Console.Read();
     }
 }
+
+
+
