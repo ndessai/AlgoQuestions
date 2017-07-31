@@ -12,16 +12,22 @@ namespace QuickCube
         {
             //find (Q+U+I+C+K)^3 = QUICK
 
-            //min sum of quick can be 1+2+3+4+5 =   15
+            //min sum of quick can be 1+0+2+3+4 =   10
             //max sum is 9+8+7+6+5 = 37
 
-            //so the sum must be between 15 and 37 including
+            //so the sum must be between 10 and 37 including
             Dictionary<int, int> sumCubes = new Dictionary<int, int>();
-            for(int i = 15; i<=37; i++)
+            for(int i = 10; i<=37; i++)
             {
                 var power = (int)Math.Pow(i, 3);
-                if (power < 12345 || power > 98756) //we should exclude these entries as we want 5 digits
+                if (power < 10234 || power > 98756) //we should exclude these entries as we want 5 digits
                     continue;
+
+                // last digit cubes can only be like these
+                //1-1, 2-8, 3-7, 4-4, 5-5, 6-6, 7-3, 8-2, 9-9, 0-0 - includes all digits, so no investigatin
+
+
+
                 int lastDigit = power % 10;
                 int sumWithoutLastDigit = i - lastDigit;
                 //get sum of other digits as sumWithoutLastDigit
