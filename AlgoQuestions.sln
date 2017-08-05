@@ -87,6 +87,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutations", "Math\Permut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharBoardDictionary", "TreesAndGraphs\CharBoardDictionary\CharBoardDictionary.csproj", "{82D1A985-2750-4C48-B8C0-C1728DCC3D22}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SegTree", "SegTree", "{BF13B9B5-B481-4816-BBCA-C17C1C40E2DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegTreeImpl", "SegTree\SegTreeImpl\SegTreeImpl.csproj", "{C9D741AF-777A-455F-9B99-503037811079}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -233,6 +237,10 @@ Global
 		{82D1A985-2750-4C48-B8C0-C1728DCC3D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82D1A985-2750-4C48-B8C0-C1728DCC3D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82D1A985-2750-4C48-B8C0-C1728DCC3D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D741AF-777A-455F-9B99-503037811079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D741AF-777A-455F-9B99-503037811079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D741AF-777A-455F-9B99-503037811079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D741AF-777A-455F-9B99-503037811079}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -273,5 +281,6 @@ Global
 		{D7C9C464-25FF-4EB2-9CDF-E6E468384D2C} = {4D6FE845-7E57-469C-9CCE-6C88FC17DE19}
 		{636DF32D-B147-4D08-8CCE-AC154FCD0D20} = {4D6FE845-7E57-469C-9CCE-6C88FC17DE19}
 		{82D1A985-2750-4C48-B8C0-C1728DCC3D22} = {40E6E08F-ABFC-4732-AF87-932576F7B568}
+		{C9D741AF-777A-455F-9B99-503037811079} = {BF13B9B5-B481-4816-BBCA-C17C1C40E2DF}
 	EndGlobalSection
 EndGlobal
