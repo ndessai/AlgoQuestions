@@ -4,91 +4,72 @@ class Program
 {
     public static void Main(string[] args)
     {
-        int []array = new int[]  { 1, 3, 5, 7, 9, 11};
         var p = new Program();
-        int[] segTree;
-        p.BuildSegTree(array, out segTree);
-
-        foreach(var item in segTree)
-        {
-            Console.Write(item + "   ");
-        }
-
-        Console.WriteLine();
-        Console.WriteLine(" The sum of 1 to 3 is " + p.GetSum(segTree, array.Length -1, 1, 3));
-        p.UpdateValue(array, 2, 10, segTree);
-        Console.WriteLine(" The new sum of 1 to 3 is " + p.GetSum(segTree, array.Length - 1, 1, 3));
+        int[] array = new int[] { 1, 3, 5, 7, 9, 11 };
+        int[] st;
+        p.BuildSegTree(array, out st);
+        foreach (var item in st) { Console.Write(" " + item); }
+        Console.WriteLine("Sum-> 2-4 ->" + p.GetSum(st, array.Length - 1, 2, 4));
+        p.UpdateVal(array, st, 17, 3);
+        Console.WriteLine("Sum-> 2-4 ->" + p.GetSum(st, array.Length - 1, 2, 4));
         Console.Read();
     }
 
-    private void UpdateValue(int [] array, int i, int val, int [] st)
+    private void UpdateVal(int[] array, int[] st, int val, int index)
     {
-        if(i < 0 || i> array.Length -1)
-        {
-            return;
-        }
-        int diff = val - array[i];
-        array[i] = val;
-        UpdateValueUtil(i, diff, st, 0, array.Length - 1, 0);
+        if (index < 0 || index > array.Length - 1) { throw new Exception("Wrong"); }
+        int diff = val - array[index];
+        array[index] = val;
+        UpdateValUtil(st, 0, array.Length - 1, diff, 0, index);
     }
 
-    private void UpdateValueUtil(int i, int diff, int[] st, int ss, int se, int si)
+    private void UpdateValUtil(int[] st, int ss, int se, int diff, int si, int i)
     {
-        if (i < ss || i > se)
-        {
-            return;
-        }
+        if (i < ss || i > se) return;
+
         st[si] += diff;
-        if(ss != se)
+        if (ss != se)
         {
             int mid = ss + (se - ss) / 2;
-            UpdateValueUtil(i, diff, st, ss, mid, 2 * si + 1);
-            UpdateValueUtil(i, diff, st, mid+1, se, 2 * si + 2);
+            UpdateValUtil(st, ss, mid, diff, 2 * si + 1, i);
+            UpdateValUtil(st, mid + 1, se, diff, 2 * si + 2, i);
         }
     }
 
-    private int GetSumUtil(int [] st, int ss, int se, int qs, int qe, int index)
+
+    private int GetSum(int[] st, int n, int s, int e)
+    {
+        if (s < 0 || e > n) { throw new Exception("Invalid"); }
+        return GetSumRecur(st, 0, n, s, e, 0);
+    }
+
+    private int GetSumRecur(int[] st, int ss, int se, int qs, int qe, int index)
     {
         if (qs <= ss && qe >= se) return st[index];
 
-        if (ss > qe || se < qs) return 0;
+        if (qs > se || qe < ss) return 0;
 
         int mid = ss + (se - ss) / 2;
-        return GetSumUtil(st, ss, mid, qs, qe, 2 * index + 1) +
-            GetSumUtil(st, mid+1, se, qs, qe, 2 * index + 2);
+        return GetSumRecur(st, ss, mid, qs, qe, 2 * index + 1) +
+            GetSumRecur(st, mid + 1, se, qs, qe, 2 * index + 2);
     }
 
-    private int GetSum(int[] st, int n, int qs, int qe)
+    private void BuildSegTree(int[] array, out int[] st)
     {
-        if(qs <0 || qe > n)
-        {
-            throw new Exception("Invalid");
-        }
-        return GetSumUtil(st, 0, n, qs, qe, 0);
+        int h = (int)Math.Ceiling((double)Math.Log(array.Length - 1, 2));
+        int size = 2 * (int)Math.Pow(2, h) - 1;
+
+        st = new int[size];
+        BuildSegTreeRecur(array, 0, array.Length - 1, st, 0);
     }
 
-    private void BuildSegTree(int[] array, out int[] segTree)
+    private int BuildSegTreeRecur(int[] a, int s, int e, int[] st, int index)
     {
-        int h = (int)Math.Ceiling(Math.Log(array.Length, 2));
-        int newSize = 2 * (int)Math.Pow(2, h) - 1;
-        segTree = new int[newSize];
+        if (s == e) { st[index] = a[s]; return st[index]; }
 
-        BuildSegTreeRecur(array, 0, array.Length - 1, segTree, 0);
-
-    }
-
-    private int BuildSegTreeRecur(int[] array, int s, int e, int[] segTree, int i)
-    {
-        if (s == e)
-        {
-            segTree[i] = array[s];
-            return segTree[i];
-        }
         int mid = s + (e - s) / 2;
-
-        segTree[i] = BuildSegTreeRecur(array, s, mid, segTree, 2 * i + 1) +
-                BuildSegTreeRecur(array, mid + 1, e, segTree, 2 * i + 2);
-
-        return segTree[i];
+        st[index] = BuildSegTreeRecur(a, s, mid, st, 2 * index + 1) +
+                BuildSegTreeRecur(a, mid + 1, e, st, 2 * index + 2);
+        return st[index];
     }
 }
